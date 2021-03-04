@@ -239,9 +239,9 @@ a traditional HTML form that submits to ``/login``:
         public function getCredentials(Request $request)
         {
             $credentials = [
-                'email' => $request->request->get('email'),
-                'password' => $request->request->get('password'),
-                'csrf_token' => $request->request->get('_csrf_token'),
+                'email' => (string) $request->request->get('email'),
+                'password' => (string) $request->request->get('password'),
+                'csrf_token' => (string) $request->request->get('_csrf_token'),
             ];
             $request->getSession()->set(
                 Security::LAST_USERNAME,
